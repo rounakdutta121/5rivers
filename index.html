@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Now Hiring | 5 Rivers Retail Services</title>
+    
+    <!-- WordPress Compatible: Using inline styles and local assets -->
+    <style>
+        /* Reset & Base */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        
+        /* CSS Variables */
+        :root {
+            --brand-blue: #0a1930;
+            --brand-blue-light: #112240;
+            --brand-gold: #d4af37;
+            --brand-gold-hover: #e6c55e;
+            --text-dark: #1a1a2e;
+            --text-light: #f8f9fa;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-600: #4b5563;
+            --gray-900: #111827;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--gray-50);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 { font-weight: 700; line-height: 1.2; }
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 2.75rem); }
+        h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.875rem 2rem;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+        .btn-primary {
+            background: var(--brand-gold);
+            color: var(--brand-blue);
+        }
+        .btn-primary:hover {
+            background: var(--brand-gold-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        .btn-secondary {
+            background: var(--white);
+            color: var(--brand-blue);
+        }
+        .btn-secondary:hover {
+            background: var(--gray-100);
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--brand-gold);
+            color: var(--brand-gold);
+        }
+        .btn-outline:hover {
+            background: var(--brand-gold);
+            color: var(--brand-blue);
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 25, 48, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+        .navbar-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .navbar-logo img {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
+        }
+        .navbar-company-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--brand-gold);
+            margin-left: 0.75rem;
+            white-space: nowrap;
+        }
+        @media (max-width: 600px) {
+            .navbar-company-name {
+                display: none;
+            }
+        }
+        .navbar-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+        .navbar-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+        .navbar-link:hover {
+            color: var(--brand-gold);
+        }
+        .navbar-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--brand-gold);
+            transition: var(--transition);
+        }
+        .navbar-link:hover::after {
+            width: 100%;
+        }
+        .navbar-cta {
+            padding: 0.625rem 1.5rem;
+            font-size: 0.9rem;
+        }
+        .navbar-phone {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--brand-gold);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .navbar-phone:hover {
+            color: white;
+        }
+        .navbar-social {
+            display: flex !important;
+            gap: 0.75rem;
+        }
+        .navbar-social a {
+            color: #d4af37 !important;
+            display: flex;
+            align-items: center;
+        }
+        .navbar-social a:hover {
+            color: white !important;
+        }
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+        .navbar-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--white);
+            transition: var(--transition);
+        }
+
+        /* Mobile Menu */
+        @media (max-width: 992px) {
+            .navbar-toggle { display: flex; }
+            .navbar-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--brand-blue);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transform: translateY(-150%);
+                transition: var(--transition);
+                box-shadow: var(--shadow-xl);
+            }
+            .navbar-menu.active {
+                transform: translateY(0);
+            }
+            .navbar-phone, .navbar-social {
+                display: none;
+            }
+            .navbar-menu.active .navbar-phone,
+            .navbar-menu.active .navbar-social {
+                display: flex;
+            }
+            .navbar-menu.active .navbar-social {
+                justify-content: center;
+                margin-top: 0.5rem;
+            }
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--brand-blue);
+            padding-top: 80px;
+            overflow: hidden;
+        }
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+        }
+        .hero-overlay {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(to bottom, rgba(10, 25, 48, 0.7) 0%, rgba(10, 25, 48, 0.5) 100%),
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            color: var(--brand-gold);
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease;
+        }
+        .hero-badge-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--brand-gold);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        .hero-title {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+        .hero-title span {
+            color: var(--brand-gold);
+        }
+        .hero-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.25rem;
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+        .hero-buttons .btn {
+            padding: 1rem 2rem;
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 4rem;
+            padding: 3rem 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+        .hero-stat {
+            text-align: center;
+        }
+        .hero-stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--brand-gold);
+        }
+        .hero-stat-label {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* FEATURES SECTION */
+        .features {
+            padding: 5rem 0;
+            background: var(--white);
+            position: relative;
+        }
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--brand-blue), var(--brand-gold), var(--brand-blue));
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-title {
+            color: var(--brand-blue);
+            margin-bottom: 1rem;
+        }
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: var(--brand-gold);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .feature-card {
+            background: var(--gray-50);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid var(--gray-200);
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--brand-gold);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--brand-gold);
+        }
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--brand-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        .feature-icon svg * {
+            stroke: #d4af37 !important;
+        }
+
+        .feature-title {
+            color: var(--brand-blue);
+            margin-bottom: 0.75rem;
+        }
+        .feature-text {
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        /* JOBS SECTION */
+        .jobs {
+            padding: 5rem 0;
+            background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+        }
+        .jobs-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .job-card {
+            background: var(--white);
+            border-radius: 1rem;
+            box-shadow: var(--shadow-sm);
+            border: 2px solid transparent;
+            transition: var(--transition);
+            overflow: hidden;
+            position: relative;
+        }
+        .job-card:hover {
+            border-color: var(--brand-gold);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+        .job-header {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            width: 100%;
+            text-align: left;
+        }
+        .job-header:hover {
+            background: #f8f9fa;
+        }
+        .job-header:hover {
+            background: var(--gray-50);
+        }
+        .job-title {
+            color: var(--brand-blue);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .job-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .job-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            background: var(--gray-100);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+        }
+        .job-tag svg {
+            width: 14px;
+            height: 14px;
+            color: var(--brand-gold);
+        }
+        .job-ribbon {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #dc2626;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 10;
+        }
+        @media (max-width: 768px) {
+            .job-ribbon {
+                position: relative;
+                top: auto;
+                right: auto;
+                display: inline-block;
+                margin-bottom: 0.5rem;
+            }
+            .job-card {
+                position: relative;
+            }
+        }
+        .job-content {
+            display: none;
+            padding: 1.5rem 2rem;
+            background: var(--gray-50);
+        }
+        .job-arrow {
+            flex-shrink: 0;
+            margin-left: 1rem;
+            transition: transform 0.3s ease;
+        }
+        .job-description {
+            border-left: 4px solid var(--brand-gold);
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+        .job-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .job-details h4 {
+            color: var(--brand-blue);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+        }
+        .job-details ul {
+            list-style: none;
+        }
+        .job-details li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+        .job-details li svg {
+            width: 16px;
+            height: 16px;
+            color: #22c55e;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .job-cta {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: var(--brand-blue);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .job-cta:hover {
+            background: var(--brand-gold);
+            color: var(--brand-blue);
+        }
+
+        /* APPLICATION SECTION */
+        .apply {
+            padding: 6rem 0;
+            background: var(--brand-blue);
+            position: relative;
+            overflow: hidden;
+        }
+        .apply::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 50%);
+            animation: rotate 30s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .apply-container {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .apply-card {
+            background: var(--white);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-2xl);
+        }
+        .apply-header {
+            background: var(--brand-blue);
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        .apply-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--brand-gold), #fbbf24, var(--brand-gold));
+        }
+        .apply-header h2 {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+        .apply-header p {
+            color: rgba(255,255,255,0.7);
+        }
+        .apply-body {
+            padding: 2.5rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--gray-900);
+        }
+        .form-label span {
+            color: #dc2626;
+        }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--gray-50);
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--brand-gold);
+            background: var(--white);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .form-section-title {
+            font-size: 1rem;
+            color: var(--brand-blue);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gray-200);
+        }
+        .form-file {
+            border: 2px dashed var(--brand-blue);
+            border-radius: 0.5rem;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            background: var(--gray-50);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .form-file:hover, .form-file.dragover {
+            border-color: var(--brand-gold);
+            background: rgba(212, 175, 55, 0.08);
+        }
+        .form-file input {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
+        .form-file-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--brand-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+        }
+        .form-file-icon svg {
+            color: var(--white);
+            width: 24px;
+            height: 24px;
+        }
+        .form-file-text {
+            font-weight: 600;
+            color: var(--brand-blue);
+        }
+        .form-file-hint {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            margin-top: 0.25rem;
+        }
+        .form-file-selected {
+            margin-top: 0.75rem;
+            padding: 0.5rem 1rem;
+            background: #dcfce7;
+            border: 1px solid #22c55e;
+            border-radius: 0.375rem;
+            color: #166534;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: none;
+        }
+        .form-file-selected.show {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .form-submit {
+            width: 100%;
+            padding: 1.25rem;
+            font-size: 1.125rem;
+            background: var(--brand-gold);
+            color: var(--brand-blue);
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .form-submit:hover {
+            background: var(--brand-gold-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        .form-note {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #050e1f;
+            color: rgba(255,255,255,0.6);
+            padding: 4rem 0 2rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+        }
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .footer-logo img {
+            height: 60px;
+        }
+        .footer-company-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--brand-gold);
+        }
+        .footer-tagline {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+        @media (max-width: 768px) {
+            .footer-social {
+                justify-content: center;
+            }
+        }
+        .social-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .social-icon:hover {
+            background: var(--brand-gold);
+            color: var(--brand-blue);
+            transform: translateY(-3px);
+            border-color: var(--brand-gold);
+        }
+        .footer-services h4 {
+            color: white;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem 2rem;
+        }
+        .footer-service-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+        .footer-service-item svg {
+            color: var(--brand-gold);
+            flex-shrink: 0;
+        }
+        @media (max-width: 768px) {
+            .footer-services-grid {
+                justify-content: center;
+            }
+            .footer-service-item {
+                justify-content: center;
+            }
+        }
+        .footer-contact {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .footer-contact-item svg {
+            color: var(--brand-gold);
+        }
+        .footer-contact-item a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .footer-contact-item a:hover {
+            color: var(--brand-gold);
+        }
+        .footer-map {
+            grid-column: 1 / -1;
+            margin-top: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .footer-map iframe {
+            display: block;
+            width: 100%;
+            filter: grayscale(50%) invert(92%);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .footer-bottom-bar {
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+        .footer-copyright {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Floating Buttons */
+        .floating-buttons {
+            position: fixed !important;
+            bottom: 30px !important;
+            right: 30px !important;
+            flex-direction: column !important;
+            gap: 12px !important;
+            z-index: 999999 !important;
+        }
+        .floating-btn {
+            width: 55px !important;
+            height: 55px !important;
+            border-radius: 50% !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-decoration: none !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4) !important;
+        }
+        .back-to-top {
+            background: #0a1930 !important;
+            color: #ffffff !important;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .back-to-top:hover {
+            background: #d4af37 !important;
+            color: #0a1930 !important;
+        }
+        .imessage-btn {
+            background: #007AFF !important;
+            color: white !important;
+        }
+        .imessage-btn:hover {
+            background: #0056b3 !important;
+        }
+
+        /* Responsive - Tablet */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 1rem;
+            }
+            .hero-title {
+                font-size: clamp(2rem, 4vw, 3rem);
+            }
+            .hero-stats {
+                gap: 2rem;
+            }
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Responsive - Mobile */
+        @media (max-width: 768px) {
+            /* Navbar */
+            .navbar-container {
+                padding: 0.5rem 1rem;
+            }
+            .navbar-logo img {
+                height: 50px;
+            }
+            .navbar-menu {
+                top: 60px;
+                padding: 1.5rem;
+            }
+            .navbar-phone {
+                display: none;
+            }
+            .navbar-social {
+                display: none !important;
+            }
+            .navbar-menu.active .navbar-phone,
+            .navbar-menu.active .navbar-social {
+                display: flex !important;
+            }
+            .navbar-menu.active .navbar-social {
+                justify-content: center;
+            }
+            .navbar-cta {
+                display: none;
+            }
+            .navbar-menu.active .navbar-cta {
+                display: inline-flex;
+            }
+            
+            /* Hero */
+            .hero {
+                padding-top: 70px;
+                min-height: auto;
+                padding-bottom: 3rem;
+            }
+            .hero-content {
+                padding: 1rem;
+            }
+            .hero-badge {
+                font-size: 0.75rem;
+                padding: 0.4rem 1rem;
+            }
+            .hero-title {
+                font-size: 1.75rem;
+                line-height: 1.3;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero-buttons .btn {
+                width: 100%;
+                padding: 0.875rem 1.5rem;
+                font-size: 0.95rem;
+            }
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 2rem 1rem;
+            }
+            .hero-stat-number {
+                font-size: 2rem;
+            }
+            .hero-stat-label {
+                font-size: 0.75rem;
+            }
+            
+            /* Features */
+            .features {
+                padding: 3rem 0;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .feature-card {
+                padding: 1.5rem;
+            }
+            .section-header {
+                margin-bottom: 2rem;
+            }
+            
+            /* Jobs */
+            .jobs {
+                padding: 3rem 0;
+            }
+            .jobs-grid {
+                gap: 1rem;
+            }
+            .job-header {
+                padding: 1rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+            .job-title {
+                font-size: 1.1rem;
+            }
+            .job-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .job-content {
+                padding: 1rem;
+            }
+            .job-details {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            /* Application Form */
+            .apply {
+                padding: 3rem 0;
+            }
+            .apply-card {
+                border-radius: 1rem;
+            }
+            .apply-header {
+                padding: 1.5rem;
+            }
+            .apply-header h2 {
+                font-size: 1.5rem;
+            }
+            .apply-body {
+                padding: 1.5rem;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .form-section-title {
+                font-size: 0.9rem;
+            }
+            .form-submit {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+            
+            /* Footer */
+            .footer {
+                padding: 2rem 0 1.5rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .footer-logo {
+                justify-content: center;
+            }
+            .footer-logo img {
+                height: 45px;
+            }
+            .footer-tagline {
+                text-align: center;
+            }
+            .footer-services h4 {
+                text-align: center;
+            }
+            .footer-services-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-contact {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            .footer-contact-item {
+                justify-content: center;
+            }
+            .footer-map {
+                margin-top: 0.5rem;
+            }
+            .footer-map iframe {
+                height: 180px;
+            }
+            .footer-bottom-bar {
+                padding-top: 1rem;
+            }
+            
+            /* Floating Buttons */
+            .floating-buttons {
+                bottom: 15px !important;
+                right: 15px !important;
+                gap: 8px !important;
+            }
+            .floating-btn {
+                width: 45px !important;
+                height: 45px !important;
+            }
+            .floating-btn svg {
+                width: 18px !important;
+                height: 18px !important;
+            }
+        }
+
+        /* Extra Small Mobile */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+            .hero-badge {
+                font-size: 0.65rem;
+            }
+            .feature-icon {
+                width: 55px;
+                height: 55px;
+            }
+            .feature-icon svg {
+                width: 24px;
+                height: 24px;
+            }
+            .job-cta {
+                padding: 0.75rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">
+                <img src="https://5riversretailservices.com/wp-content/uploads/2025/12/Gold-Logo-Blue-BG-1.png" alt="5 Rivers Retail Services">
+                <span class="navbar-company-name">5 Rivers Retail Services</span>
+            </a>
+            
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="#benefits" class="navbar-link">Benefits</a></li>
+                <li><a href="#openings" class="navbar-link">Open Positions</a></li>
+                <li><a href="#apply" class="navbar-link">Apply</a></li>
+                <li><a href="tel:2145096064" class="navbar-phone"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> (214) 509-6064</a></li>
+                <li><a href="#apply" class="btn btn-primary navbar-cta">Apply Now</a></li>
+                <li class="navbar-social">
+                    <a href="https://www.facebook.com/people/5-River-Retail-Services/61584922367087/" target="_blank" title="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/5riversretailservices/" target="_blank" title="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/5-rivers-retail-services" target="_blank" title="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="navbar-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=1920&q=80">
+            <source src="https://res.cloudinary.com/dadofd9d2/video/upload/v1773816481/grok-video-103ae03a-73c9-4a4f-9e5b-1b955675cb3c_aefjda.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    WE'RE ACTIVELY HIRING
+                </div>
+                
+                <h1 class="hero-title">
+                    Build a Career That <span>Moves You Forward</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Join 5 Rivers Retail Services and become part of an elite team delivering top-tier retail installations and merchandising nationwide.
+                </p>
+                
+                <div class="hero-buttons">
+                    <a href="#openings" class="btn btn-primary">View Openings</a>
+                    <a href="#apply" class="btn btn-secondary">Fast-Track Application</a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">500+</div>
+                        <div class="hero-stat-label">Projects Completed</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">50+</div>
+                        <div class="hero-stat-label">States Served</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">98%</div>
+                        <div class="hero-stat-label">Client Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS SECTION -->
+    <section id="benefits" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose 5 Rivers?</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                    </div>
+                    <h3 class="feature-title">Career Growth</h3>
+                    <p class="feature-text">We promote from within. Start in the field or the office and build a long-term, rewarding career path with our expanding team.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    </div>
+                    <h3 class="feature-title">Travel Opportunities</h3>
+                    <p class="feature-text">Our field teams get to travel to dynamic retail environments nationwide. See the country while earning a competitive living.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h3 class="feature-title">Team & Safety First</h3>
+                    <p class="feature-text">You're not just a number. We prioritize a supportive environment, clear communication, and absolute safety on every single job site.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JOB OPENINGS SECTION -->
+    <section id="openings" class="jobs">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Open Positions</h2>
+                <div class="section-divider"></div>
+                <p style="margin-top: 1rem; color: var(--gray-600);">Select a role below to view requirements and apply instantly.</p>
+            </div>
+            
+            <div class="jobs-grid">
+                <!-- JOB 1 -->
+                <div class="job-card">
+                    <button class="job-header" onclick="toggleJob('job1')">
+                        <div>
+                            <h3 class="job-title">Administrative Assistant</h3>
+                            <div class="job-meta">
+                                <span class="job-tag">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                    Dallas, TX
+                                </span>
+                                <span class="job-tag">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    Full-Time
+                                </span>
+                            </div>
+                        </div>
+                        <svg class="job-arrow" id="arrow-job1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--brand-gold); transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="job-content" id="job1" style="display: none;">
+                        <p class="job-description">Supports daily office operations, client communication, recruiting, scheduling, and workforce coordination.</p>
+                        
+                        <div class="job-details">
+                            <div>
+                                <h4>Core Responsibilities</h4>
+                                <ul>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Answer calls, emails, and manage project files</li>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Recruit and interview field staff</li>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Schedule and dispatch workforce</li>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Verify timesheets and assist with invoicing</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Requirements</h4>
+                                <ul>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Strong organization & multitasking skills</li>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Proficiency in Microsoft/Google tools</li>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Preferred: Recruiting/staffing experience</li>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Preferred: Construction/retail background</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="#apply" onclick="selectJob('Administrative Assistant')" class="job-cta">Apply For This Role</a>
+                    </div>
+                </div>
+                
+                <!-- JOB 2 -->
+                <div class="job-card" style="position: relative;">
+                    <span class="job-ribbon">High Demand</span>
+                    <button class="job-header" onclick="toggleJob('job2')">
+                        <div>
+                            <h3 class="job-title">Retail Fixture Installation Tech</h3>
+                            <div class="job-meta">
+                                <span class="job-tag">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                    Dallas + Travel
+                                </span>
+                                <span class="job-tag">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    Part-time / Contractor
+                                </span>
+                            </div>
+                        </div>
+                        <svg class="job-arrow" id="arrow-job2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--brand-gold); transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="job-content" id="job2" style="display: none;">
+                        <p class="job-description">Hands-on role installing retail fixtures, shelving, racking, and completing full store layouts.</p>
+                        
+                        <div class="job-details">
+                            <div>
+                                <h4>Core Responsibilities</h4>
+                                <ul>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Install commercial fixtures and displays</li>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Read and execute blueprints accurately</li>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Maintain absolute jobsite safety (PPE)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Requirements</h4>
+                                <ul>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Ability to lift 50–75 lbs consistently</li>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Extensive hand and power tool experience</li>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Preferred: Own tools & reliable transport</li>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Preferred: OSHA certification</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="#apply" onclick="selectJob('Retail Fixture Installation Technician')" class="job-cta">Apply For This Role</a>
+                    </div>
+                </div>
+                
+                <!-- JOB 3 -->
+                <div class="job-card">
+                    <button class="job-header" onclick="toggleJob('job3')">
+                        <div>
+                            <h3 class="job-title">Retail Merchandiser</h3>
+                            <div class="job-meta">
+                                <span class="job-tag">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                    Dallas + Travel
+                                </span>
+                                <span class="job-tag">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    Part-time / Contractor
+                                </span>
+                            </div>
+                        </div>
+                        <svg class="job-arrow" id="arrow-job3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--brand-gold); transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="job-content" id="job3" style="display: none;">
+                        <p class="job-description">Detail-oriented role handling product placement, planograms, signage, and retail merchandising resets.</p>
+                        
+                        <div class="job-details">
+                            <div>
+                                <h4>Core Responsibilities</h4>
+                                <ul>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Read and flawlessly execute planograms</li>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Stock merchandise and label shelves</li>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Install signage and perform store resets</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Requirements</h4>
+                                <ul>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> High attention to detail & communication</li>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Experience reading planograms</li>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Preferred: Willingness to work overnight shifts</li>
+                                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Preferred: Big-box store experience</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="#apply" onclick="selectJob('Retail Merchandiser')" class="job-cta">Apply For This Role</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APPLICATION SECTION -->
+    <section id="apply" class="apply">
+        <div class="apply-container">
+            <div class="apply-card">
+                <div class="apply-header">
+                    <h2>Fast-Track Application</h2>
+                    <p>It takes less than 2 minutes to apply. Let's get started.</p>
+                </div>
+                
+                <div class="apply-body">
+                    <form id="applicationForm" onsubmit="submitForm(event)">
+                        <div class="form-group">
+                            <h3 class="form-section-title">1. Personal Details</h3>
+                            <div class="form-row">
+                                <div>
+                                    <label class="form-label" for="name">Full Name <span>*</span></label>
+                                    <input type="text" id="name" name="name" class="form-input" required>
+                                </div>
+                                <div>
+                                    <label class="form-label" for="phone">Phone Number <span>*</span></label>
+                                    <input type="tel" id="phone" name="phone" class="form-input" required>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1rem;">
+                                <label class="form-label" for="email">Email Address <span>*</span></label>
+                                <input type="email" id="email" name="email" class="form-input" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <h3 class="form-section-title">2. Role & Experience</h3>
+                            <div>
+                                <label class="form-label" for="position">Which role are you applying for? <span>*</span></label>
+                                <select id="position" name="position" class="form-select" required>
+                                    <option value="" disabled selected>Select a position...</option>
+                                    <option value="Administrative Assistant">Administrative Assistant</option>
+                                    <option value="Retail Fixture Installation Technician">Retail Fixture Installation Technician</option>
+                                    <option value="Retail Merchandiser">Retail Merchandiser</option>
+                                    <option value="General Inquiry">General Application / Other</option>
+                                </select>
+                            </div>
+                            
+                            <div style="margin-top: 1rem;">
+                                <label class="form-label">Upload Resume <span>*</span></label>
+                                <label class="form-file" for="resume">
+                                    <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required onchange="handleFileSelect(event)">
+                                    <div class="form-file-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                                    </div>
+                                    <span class="form-file-text">Click to upload your resume</span>
+                                    <span class="form-file-hint">PDF or DOCX up to 10MB</span>
+                                    <div class="form-file-selected" id="fileSelected"></div>
+                                </label>
+                            </div>
+                            
+                            <div style="margin-top: 1rem;">
+                                <label class="form-label" for="message">Briefly tell us why you're a good fit</label>
+                                <textarea id="message" name="message" class="form-textarea" rows="3" placeholder="I have 3 years of experience in..."></textarea>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="form-submit">Submit Application Now</button>
+                        <p class="form-note">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                            Your information is secure and confidential.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="https://5riversretailservices.com/wp-content/uploads/2025/12/Gold-Logo-Blue-BG-1.png" alt="5 Rivers">
+                        <span class="footer-company-name">5 Rivers Retail Services</span>
+                    </div>
+                    <p class="footer-tagline">Professional retail services nationwide. Delivering excellence in fixture installation, merchandising, and store setups.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/people/5-River-Retail-Services/61584922367087/?mibextid=wwXIfr&rdid=L13LjuIG01E0Ech1&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1GH98SnE62%2F%3Fmibextid%3DwwXIfr" target="_blank" class="social-icon" title="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/5riversretailservices/" target="_blank" class="social-icon" title="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/checkpoint/challengesV2/AQGwvy6NWGunzgAAAZz_nU4CTbjIaQJSS4z4APk8mskNjnY6V9wLc87FV9GGrKFWyiQkabPyYG7pqo2fCFMWy8hHB1jtwJMoWA?ut=2misA441a_6Ic1" target="_blank" class="social-icon" title="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-services">
+                    <h4>Our Services</h4>
+                    <div class="footer-services-grid">
+                        <div class="footer-service-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Fixture & Millwork Install
+                        </div>
+                        <div class="footer-service-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Displays
+                        </div>
+                        <div class="footer-service-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Signage Merchandising
+                        </div>
+                        <div class="footer-service-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Racking
+                        </div>
+                        <div class="footer-service-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Store Setups
+                        </div>
+                        <div class="footer-service-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Surveys
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-contact">
+                    <div class="footer-contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span>2301 Ohio Drive, Plano, Texas, 75093</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <a href="mailto:info@5riversretailservices.com">info@5riversretailservices.com</a>
+                    </div>
+                </div>
+                
+                <div class="footer-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3343.6!2d-96.79!3d33.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c22a6a1a1a1a1%3A0x1a1a1a1a1a1a1a1!2s2301%20Ohio%20Dr%2C%20Plano%2C%20TX%2075093!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="200" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+            
+            <div class="footer-bottom-bar">
+                <p class="footer-copyright">&copy; 2026 5 Rivers Retail Services LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            document.getElementById('navbarMenu').classList.toggle('active');
+        }
+        
+        // Close menu when clicking a link
+        var navLinks = document.querySelectorAll('.navbar-link');
+        for (var i = 0; i < navLinks.length; i++) {
+            navLinks[i].addEventListener('click', function() {
+                document.getElementById('navbarMenu').classList.remove('active');
+            });
+        }
+        
+        // Job Accordion Toggle
+        function toggleJob(jobId) {
+            var content = document.getElementById(jobId);
+            var arrow = document.getElementById('arrow-' + jobId);
+            
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                arrow.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.display = 'block';
+                arrow.style.transform = 'rotate(180deg)';
+            }
+        }
+        
+        // Auto-select job when clicking Apply button in job card
+        function selectJob(jobTitle) {
+            var dropdown = document.getElementById('position');
+            if (dropdown) {
+                dropdown.value = jobTitle;
+            }
+        }
+        
+        // Drag and Drop Effects
+        var fileLabel = document.querySelector('.form-file');
+        if (fileLabel) {
+            fileLabel.addEventListener('dragenter', function(e) {
+                e.preventDefault();
+                this.classList.add('dragover');
+            });
+            fileLabel.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.classList.add('dragover');
+            });
+            fileLabel.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                this.classList.remove('dragover');
+            });
+            fileLabel.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.classList.remove('dragover');
+                var files = e.dataTransfer.files;
+                document.getElementById('resume').files = files;
+                handleFileSelect({ target: document.getElementById('resume') });
+            });
+        }
+        
+        // File Select Display
+        function handleFileSelect(event) {
+            var file = event.target.files[0];
+            var display = document.getElementById('fileSelected');
+            if (file && display) {
+                display.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Selected: ' + file.name;
+                display.classList.add('show');
+            } else if (display) {
+                display.classList.remove('show');
+            }
+        }
+        
+        // Form Submit
+        function submitForm(event) {
+            event.preventDefault();
+            
+            var submitBtn = event.target.querySelector('.form-submit');
+            var originalText = submitBtn.innerText;
+            submitBtn.innerText = 'Sending...';
+            submitBtn.disabled = true;
+            
+            var formData = new FormData();
+            formData.append('name', document.getElementById('name').value);
+            formData.append('phone', document.getElementById('phone').value);
+            formData.append('email', document.getElementById('email').value);
+            formData.append('position', document.getElementById('position').value);
+            formData.append('message', document.getElementById('message').value);
+            
+            var resumeInput = document.getElementById('resume');
+            if (resumeInput.files.length > 0) {
+                formData.append('resume', resumeInput.files[0]);
+            }
+            
+            fetch('https://damnart-ai-guladab.n8n-wsk.com/webhook/5rivers', {
+                method: 'POST',
+                body: formData
+            })
+            .then(function(response) {
+                if (response.ok) {
+                    alert('Success! Your application has been submitted to our hiring team.');
+                    event.target.reset();
+                    var fileSelected = document.getElementById('fileSelected');
+                    if (fileSelected) {
+                        fileSelected.classList.remove('show');
+                    }
+                } else {
+                    alert('There was an error submitting your application. Please try again.');
+                }
+            })
+            .catch(function(error) {
+                console.error('Error:', error);
+                alert('There was an error submitting your application. Please try again.');
+            })
+            .finally(function() {
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+            });
+        }
+        
+        // Smooth scroll for anchor links
+        var smoothLinks = document.querySelectorAll('a[href^="#"]');
+        for (var i = 0; i < smoothLinks.length; i++) {
+            smoothLinks[i].addEventListener('click', function(e) {
+                e.preventDefault();
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        }
+        
+        // Back to Top Button
+        var backToTopBtn = document.getElementById('backToTop');
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+        }
+    </script>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons" style="display: flex !important;">
+        <a href="sms:2145096064" class="floating-btn imessage-btn" title="Send iMessage" style="display: flex !important;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+        </a>
+        <a href="javascript:window.scrollTo(0,0)" class="floating-btn back-to-top" id="backToTop" title="Back to Top" style="display: flex !important;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
+        </a>
+    </div>
+    
+    <script>
+    // Simple scroll handler
+    window.onscroll = function() {
+        var btn = document.getElementById('backToTop');
+        if (btn) {
+            if (window.pageYOffset > 50) {
+                btn.style.opacity = '1';
+                btn.style.pointerEvents = 'auto';
+            } else {
+                btn.style.opacity = '0';
+                btn.style.pointerEvents = 'none';
+            }
+        }
+    };
+    </script>
+</body>
+</html>
