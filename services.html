@@ -1,0 +1,2142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | 5 Rivers Retail Services</title>
+    
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        
+        :root {
+            --brand-blue: #0a1930;
+            --brand-blue-light: #112240;
+            --brand-gold: #d4af37;
+            --brand-gold-hover: #e6c55e;
+            --text-dark: #1a1a2e;
+            --text-light: #f8f9fa;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-600: #4b5563;
+            --gray-900: #111827;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--gray-50);
+        }
+
+        h1, h2, h3, h4 { font-weight: 700; line-height: 1.2; }
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 2.75rem); }
+        h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.875rem 2rem;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+        .btn-primary {
+            background: var(--brand-gold);
+            color: var(--brand-blue);
+        }
+        .btn-primary:hover {
+            background: var(--brand-gold-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        .btn-secondary {
+            background: var(--white);
+            color: var(--brand-blue);
+        }
+        .btn-secondary:hover {
+            background: var(--gray-100);
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--brand-gold);
+            color: var(--brand-gold);
+        }
+        .btn-outline:hover {
+            background: var(--brand-gold);
+            color: var(--brand-blue);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--brand-blue);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+        
+        /* Top Bar */
+        .navbar-top {
+            background: var(--brand-blue);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 0.5rem 1.5rem;
+        }
+        .navbar-top-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .navbar-top-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .navbar-top-phone {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--white);
+            font-size: 0.875rem;
+        }
+        .navbar-top-phone svg {
+            color: var(--brand-gold);
+        }
+        .navbar-top-phone span {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
+        }
+        .navbar-top-social {
+            display: flex;
+            gap: 0.75rem;
+        }
+        .navbar-top-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: var(--brand-gold);
+            transition: var(--transition);
+        }
+        .navbar-top-social a:hover {
+            background: var(--brand-gold);
+            color: var(--brand-blue);
+        }
+        
+        /* Main Navbar */
+        .navbar-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .navbar-menu {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            list-style: none;
+        }
+        .navbar-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        .navbar-link:hover {
+            color: var(--brand-gold);
+        }
+        .navbar-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--brand-gold);
+            transition: var(--transition);
+        }
+        .navbar-link:hover::after {
+            width: 100%;
+        }
+        .navbar-link.active {
+            color: var(--brand-gold);
+        }
+        .navbar-link.active::after {
+            width: 100%;
+        }
+        
+        /* Dropdown */
+        .navbar-dropdown {
+            position: relative;
+        }
+        .navbar-dropdown > .navbar-link {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .navbar-dropdown > .navbar-link svg {
+            width: 12px;
+            height: 12px;
+            transition: transform 0.3s;
+        }
+        .navbar-dropdown:hover > .navbar-link svg {
+            transform: rotate(180deg);
+        }
+        .navbar-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--brand-blue);
+            min-width: 220px;
+            padding: 0.5rem 0;
+            border-radius: 0 0 0.5rem 0.5rem;
+            box-shadow: var(--shadow-xl);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 100;
+        }
+        .navbar-dropdown:hover .navbar-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .navbar-dropdown-menu a {
+            display: block;
+            padding: 0.625rem 1rem;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: var(--transition);
+        }
+        .navbar-dropdown-menu a:hover {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--brand-gold);
+        }
+        
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .navbar-logo img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .navbar-cta {
+            padding: 0.5rem 1.25rem;
+            font-size: 0.85rem;
+        }
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+        .navbar-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--white);
+            transition: var(--transition);
+        }
+
+        @media (max-width: 1024px) {
+            .navbar-top {
+                display: none;
+            }
+            .navbar-main {
+                padding: 0.5rem 1rem;
+            }
+            .navbar-toggle { display: flex; }
+            .navbar-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: var(--brand-blue);
+                flex-direction: column;
+                align-items: center;
+                padding: 6rem 2rem 2rem;
+                gap: 1.5rem;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 1000;
+                overflow-y: auto;
+            }
+            .navbar-menu.active {
+                transform: translateX(0);
+            }
+            .navbar-menu .navbar-link {
+                font-size: 1.25rem;
+                padding: 0.75rem 0;
+                text-align: center;
+                width: 100%;
+                display: block;
+            }
+            .navbar-dropdown-menu {
+                position: static;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                max-height: 0;
+                overflow: hidden;
+                box-shadow: none;
+                padding-left: 0;
+                background: rgba(255,255,255,0.05);
+                border-radius: 0.5rem;
+                margin-top: 0.5rem;
+                transition: all 0.3s ease;
+                z-index: 1001;
+                width: 100%;
+            }
+            .navbar-dropdown-menu a {
+                text-align: center;
+            }
+            .navbar-dropdown-menu.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+                max-height: 500px;
+                z-index: 1001;
+            }
+            .navbar-dropdown {
+                z-index: 1001;
+            }
+            .navbar-dropdown-menu a {
+                font-size: 1rem;
+                padding: 0.5rem 0;
+            }
+            .navbar-dropdown > .navbar-link svg {
+                transition: transform 0.3s;
+            }
+            .navbar-dropdown {
+                position: relative;
+            }
+            .navbar-dropdown > .navbar-link svg {
+                display: inline-block;
+                margin-left: 0.5rem;
+            }
+            .navbar-dropdown.open > .navbar-link svg {
+                transform: rotate(180deg);
+            }
+            .navbar-cta {
+                margin-top: 1rem;
+            }
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--brand-blue);
+            padding-top: 120px;
+            overflow: hidden;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(to bottom, rgba(10, 25, 48, 0.6) 0%, rgba(10, 25, 48, 0.5) 100%),
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 40%);
+            z-index: 1;
+        }
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 15%;
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 3rem 1.5rem;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            color: var(--brand-gold);
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease;
+        }
+        .hero-title {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+        .hero-title span {
+            color: var(--brand-gold);
+        }
+        .hero-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+        .hero-buttons .btn {
+            padding: 1rem 2rem;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .why-choose {
+            padding: 5rem 0;
+            background: var(--white);
+            position: relative;
+        }
+        .why-choose::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--brand-blue), var(--brand-gold), var(--brand-blue));
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-title {
+            color: var(--brand-blue);
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            color: var(--gray-600);
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: var(--brand-gold);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .reason-card {
+            background: var(--gray-50);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid var(--gray-200);
+            position: relative;
+            overflow: hidden;
+        }
+        .reason-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--brand-gold);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+        .reason-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--brand-gold);
+        }
+        .reason-card:hover::before {
+            transform: scaleX(1);
+        }
+        .reason-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--brand-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        .reason-icon svg * {
+            stroke: #d4af37 !important;
+        }
+        .reason-title {
+            color: var(--brand-blue);
+            margin-bottom: 0.75rem;
+        }
+        .reason-text {
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        .services-section {
+            padding: 5rem 0;
+            background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .service-card {
+            background: var(--white);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid var(--gray-200);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--brand-blue), var(--brand-gold));
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--brand-gold);
+        }
+        .service-card:hover::after {
+            transform: scaleX(1);
+        }
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-light));
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: var(--transition);
+        }
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, var(--brand-gold), var(--brand-gold-hover));
+        }
+        .service-icon svg * {
+            stroke: #d4af37 !important;
+        }
+        .service-card:hover .service-icon svg * {
+            stroke: var(--brand-blue) !important;
+        }
+        .service-title {
+            color: var(--brand-blue);
+            margin-bottom: 0.75rem;
+        }
+        .service-desc {
+            color: var(--gray-600);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .service-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--brand-gold);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+        .service-card:hover .service-cta {
+            color: var(--brand-blue);
+        }
+        .service-cta svg {
+            transition: var(--transition);
+        }
+        .service-card:hover .service-cta svg {
+            transform: translateX(5px);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 25, 48, 0.9);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal {
+            background: var(--white);
+            border-radius: 1.5rem;
+            max-width: 650px;
+            width: 100%;
+            max-height: 85vh;
+            overflow: hidden;
+            transform: scale(0.9) translateY(20px);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        .modal-overlay.active .modal {
+            transform: scale(1) translateY(0);
+        }
+        .modal-header {
+            background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-light));
+            padding: 2rem;
+            position: relative;
+        }
+        .modal-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--brand-gold), #fbbf24, var(--brand-gold));
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        .modal-close:hover {
+            background: var(--brand-gold);
+        }
+        .modal-close svg {
+            color: white;
+            width: 24px;
+            height: 24px;
+        }
+        .modal-close:hover svg {
+            color: var(--brand-blue);
+        }
+        .modal-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .modal-icon svg * {
+            stroke: var(--brand-gold) !important;
+        }
+        .modal-title {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .modal-subtitle {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+        }
+        .modal-body {
+            padding: 2rem;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+        .modal-body::-webkit-scrollbar {
+            width: 6px;
+        }
+        .modal-body::-webkit-scrollbar-track {
+            background: var(--gray-100);
+            border-radius: 3px;
+        }
+        .modal-body::-webkit-scrollbar-thumb {
+            background: var(--brand-gold);
+            border-radius: 3px;
+        }
+        .modal-section {
+            margin-bottom: 1.5rem;
+        }
+        .modal-section:last-child {
+            margin-bottom: 0;
+        }
+        .modal-section h4 {
+            color: var(--brand-blue);
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .modal-section h4 svg {
+            color: var(--brand-gold);
+        }
+        .modal-section p {
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+        .modal-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.75rem;
+        }
+        .modal-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+        .modal-list li svg {
+            color: #22c55e;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .modal-footer {
+            padding: 1.5rem 2rem;
+            background: var(--gray-50);
+            border-top: 1px solid var(--gray-200);
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+        .modal-footer .btn {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .cta-section {
+            padding: 6rem 0;
+            background: var(--brand-blue);
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 50%);
+            animation: rotate 30s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .cta-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .cta-title {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        .cta-text {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* APPLICATION SECTION */
+        .apply {
+            padding: 6rem 0;
+            background: var(--brand-blue);
+            position: relative;
+            overflow: hidden;
+        }
+        .apply::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 50%);
+            animation: rotate 30s linear infinite;
+        }
+        .apply-container {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .apply-card {
+            background: var(--white);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+        .apply-header {
+            background: var(--brand-blue);
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        .apply-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--brand-gold), #fbbf24, var(--brand-gold));
+        }
+        .apply-header h2 {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+        .apply-header p {
+            color: rgba(255,255,255,0.7);
+        }
+        .apply-body {
+            padding: 2.5rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--gray-900);
+        }
+        .form-label span {
+            color: #dc2626;
+        }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--gray-50);
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--brand-gold);
+            background: var(--white);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .form-section-title {
+            font-size: 1rem;
+            color: var(--brand-blue);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gray-200);
+        }
+        .form-file {
+            border: 2px dashed var(--brand-blue);
+            border-radius: 0.5rem;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            background: var(--gray-50);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .form-file:hover, .form-file.dragover {
+            border-color: var(--brand-gold);
+            background: rgba(212, 175, 55, 0.08);
+        }
+        .form-file input {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
+        .form-file-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--brand-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+        }
+        .form-file-icon svg {
+            color: var(--white);
+            width: 24px;
+            height: 24px;
+        }
+        .form-file-text {
+            font-weight: 600;
+            color: var(--brand-blue);
+        }
+        .form-file-hint {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            margin-top: 0.25rem;
+        }
+        .form-file-selected {
+            margin-top: 0.75rem;
+            padding: 0.5rem 1rem;
+            background: #dcfce7;
+            border: 1px solid #22c55e;
+            border-radius: 0.375rem;
+            color: #166534;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: none;
+        }
+        .form-file-selected.show {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .form-submit {
+            width: 100%;
+            padding: 1.25rem;
+            font-size: 1.125rem;
+            background: var(--brand-gold);
+            color: var(--brand-blue);
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .form-submit:hover {
+            background: var(--brand-gold-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        .form-note {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .footer {
+            background: #050e1f;
+            color: rgba(255,255,255,0.6);
+            padding: 4rem 0 2rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+        }
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .footer-logo img {
+            height: 60px;
+        }
+        .footer-company-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--brand-gold);
+        }
+        .footer-tagline {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+        @media (max-width: 768px) {
+            .footer-social {
+                justify-content: center;
+            }
+        }
+        .social-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .social-icon:hover {
+            background: var(--brand-gold);
+            color: var(--brand-blue);
+            transform: translateY(-3px);
+            border-color: var(--brand-gold);
+        }
+        .footer-services h4 {
+            color: white;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem 2rem;
+        }
+        .footer-service-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+        .footer-service-item svg {
+            color: var(--brand-gold);
+            flex-shrink: 0;
+        }
+        @media (max-width: 768px) {
+            .footer-services-grid {
+                justify-content: center;
+            }
+            .footer-service-item {
+                justify-content: center;
+            }
+        }
+        .footer-contact {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .footer-contact-item svg {
+            color: var(--brand-gold);
+        }
+        .footer-contact-item a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .footer-contact-item a:hover {
+            color: var(--brand-gold);
+        }
+        .footer-map {
+            width: 100%;
+            margin-top: 2rem;
+        }
+        .footer-map iframe {
+            width: 100%;
+            display: block;
+        }
+        .footer-bottom-bar {
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+        .footer-copyright {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .floating-buttons {
+            position: fixed !important;
+            bottom: 30px !important;
+            right: 30px !important;
+            flex-direction: column !important;
+            gap: 12px !important;
+            z-index: 999 !important;
+        }
+        .floating-btn {
+            width: 55px !important;
+            height: 55px !important;
+            border-radius: 50% !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-decoration: none !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4) !important;
+        }
+        .back-to-top {
+            background: #0a1930 !important;
+            color: #ffffff !important;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .back-to-top:hover {
+            background: #d4af37 !important;
+            color: #0a1930 !important;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .imessage-btn {
+            background: #007AFF !important;
+            color: white !important;
+        }
+        .imessage-btn:hover {
+            background: #0056b3 !important;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 1rem;
+            }
+            .reasons-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-container {
+                padding: 0.5rem 1rem;
+            }
+            .navbar-logo img {
+                height: 50px;
+            }
+            .navbar-menu {
+                top: 60px;
+                padding: 1.5rem;
+            }
+            .navbar-phone {
+                display: none;
+            }
+            .navbar-social {
+                display: none !important;
+            }
+            .navbar-menu.active .navbar-phone,
+            .navbar-menu.active .navbar-social {
+                display: flex !important;
+            }
+            .navbar-menu.active .navbar-social {
+                justify-content: center;
+            }
+            .navbar-menu.active .navbar-phone {
+                display: flex;
+            }
+            .navbar-cta {
+                display: none;
+            }
+            .navbar-menu.active .navbar-cta {
+                display: inline-flex;
+            }
+            
+            .hero {
+                padding-top: 80px;
+                min-height: 60vh;
+            }
+            .hero-title {
+                font-size: 1.75rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .why-choose {
+                padding: 3rem 0;
+            }
+            .reasons-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .reason-card {
+                padding: 1.5rem;
+            }
+            
+            .services-section {
+                padding: 3rem 0;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .service-card {
+                padding: 1.5rem;
+            }
+            
+            .modal-body {
+                max-height: 40vh;
+            }
+            .modal-footer {
+                flex-direction: column;
+            }
+            .modal-footer .btn {
+                width: 100%;
+            }
+            
+            .cta-section {
+                padding: 3rem 0;
+            }
+            .cta-title {
+                font-size: 1.75rem;
+            }
+            
+            .footer {
+                padding: 2rem 0 1.5rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .footer-logo {
+                justify-content: center;
+            }
+            .footer-tagline {
+                text-align: center;
+            }
+            .footer-services h4 {
+                text-align: center;
+            }
+            .footer-services-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-contact {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            .footer-contact-item {
+                justify-content: center;
+            }
+            
+            .floating-buttons {
+                bottom: 15px !important;
+                right: 15px !important;
+            }
+            .floating-btn {
+                width: 45px !important;
+                height: 45px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <!-- Top Bar -->
+        <div class="navbar-top">
+            <div class="navbar-top-inner">
+                <div class="navbar-top-left">
+                    <div class="navbar-top-phone">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <span>Call Us:</span>
+                        <a href="tel:2145096064" style="color: white; text-decoration: none;">(214) 509-6064</a>
+                    </div>
+                    <div class="navbar-top-social">
+                        <a href="https://www.facebook.com/people/5-River-Retail-Services/61584922367087/" target="_blank" title="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/5riversretailservices/" target="_blank" title="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/5-rivers-retail-services" target="_blank" title="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <a href="#contact" class="btn btn-primary navbar-cta">Join Our Team</a>
+            </div>
+        </div>
+        
+        <!-- Main Navigation -->
+        <div class="navbar-main">
+            <a href="#" class="navbar-logo">
+                <img src="https://5riversretailservices.com/wp-content/uploads/2025/12/Gold-Logo-Blue-BG-1.png" alt="5 Rivers Retail Services">
+            </a>
+            
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="#hero" class="navbar-link">Home</a></li>
+                <li><a href="#why-choose" class="navbar-link">Why Us</a></li>
+                <li class="navbar-dropdown">
+                    <a href="#" class="navbar-link" onclick="toggleServicesDropdown(event)">
+                        Services
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </a>
+                    <div class="navbar-dropdown-menu">
+                        <a href="#" onclick="openModal('fixture'); closeMobileMenu(); return false;">Fixture and Millwork Installation</a>
+                        <a href="#" onclick="openModal('display'); closeMobileMenu(); return false;">Display Assembly</a>
+                        <a href="#" onclick="openModal('signage'); closeMobileMenu(); return false;">Signage & POP Installation</a>
+                        <a href="#" onclick="openModal('merchandising'); closeMobileMenu(); return false;">Product Merchandising</a>
+                        <a href="#" onclick="openModal('racking'); closeMobileMenu(); return false;">Pallet and Backroom Racking</a>
+                        <a href="#" onclick="openModal('newstore'); closeMobileMenu(); return false;">New Store Set Up</a>
+                        <a href="#" onclick="openModal('surveys'); closeMobileMenu(); return false;">Site Surveys</a>
+                        <a href="#" onclick="openModal('reset'); closeMobileMenu(); return false;">Store Reset & Remodel</a>
+                    </div>
+                </li>
+                <li><a href="#contact" class="navbar-link">Contact</a></li>
+            </ul>
+            
+            <div class="navbar-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="https://res.cloudinary.com/dadofd9d2/video/upload/v1774077496/video-1049910884870172_mxptlr.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>PROFESSIONAL RETAIL SERVICES</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Expert <span>Retail Solutions</span> That Drive Results
+                </h1>
+                
+                <p class="hero-subtitle">
+                    From fixture installation to store setups, we deliver precision, professionalism, and reliability nationwide. Trusted by leading retailers for over a decade.
+                </p>
+                
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">View Services</a>
+                    <a href="#apply" class="btn btn-outline">Get a Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose" id="why-choose">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose 5 Rivers?</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle" style="margin-top: 1.5rem;">Partner with a team that prioritizes quality, safety, and your bottom line.</p>
+            </div>
+            
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h3 class="reason-title">Safety-First Approach</h3>
+                    <p class="reason-text">Every project adheres to strict safety protocols. Our team is OSHA-trained, PPE-equipped, and committed to zero-incident job sites.</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <h3 class="reason-title">On-Time Delivery</h3>
+                    <p class="reason-text">We understand retail timelines are critical. Our efficient crews work around your schedule to meet deadlines without compromising quality.</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3 class="reason-title">Skilled Workforce</h3>
+                    <p class="reason-text">Our technicians bring years of hands-on experience with retail fixtures, merchandising, and store installations across all major retailers.</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <h3 class="reason-title">Nationwide Coverage</h3>
+                    <p class="reason-text">From single-store projects to multi-location rollouts, our network spans 50+ states, ensuring consistent quality coast to coast.</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                    </div>
+                    <h3 class="reason-title">Cost-Effective Solutions</h3>
+                    <p class="reason-text">Competitive pricing with no hidden fees. We optimize workflows to deliver maximum value while keeping your project on budget.</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <h3 class="reason-title">98% Success Rate</h3>
+                    <p class="reason-text">Our track record speaks for itself. We consistently exceed client expectations with meticulous attention to detail on every project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Services</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle" style="margin-top: 1.5rem;">Click any service to learn more about how we can help your retail operation.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card" onclick="openModal('fixture')">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                    </div>
+                    <h3 class="service-title">Fixture & Millwork Installation</h3>
+                    <p class="service-desc">Professional Plano fixture & millwork installation that enhances customer experience, boosts store aesthetics, and positively impacts sales.</p>
+                    <span class="service-cta">Learn More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                </div>
+                
+                <div class="service-card" onclick="openModal('display')">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                    </div>
+                    <h3 class="service-title">Display Assembly</h3>
+                    <p class="service-desc">Plano retail display installation services that enhance visual identity, reinforce branding, and maximize sales potential.</p>
+                    <span class="service-cta">Learn More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                </div>
+                
+                <div class="service-card" onclick="openModal('signage')">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+                    </div>
+                    <h3 class="service-title">Signage & POP Installation</h3>
+                    <p class="service-desc">Plano commercial sign installation delivering high ROI, guiding customers, and triggering impulse buying.</p>
+                    <span class="service-cta">Learn More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                </div>
+                
+                <div class="service-card" onclick="openModal('merchandising')">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    </div>
+                    <h3 class="service-title">Product Merchandising</h3>
+                    <p class="service-desc">Plano product merchandising to maximize store profitability, build customer loyalty, and drive sales.</p>
+                    <span class="service-cta">Learn More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                </div>
+                
+                <div class="service-card" onclick="openModal('racking')">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                    </div>
+                    <h3 class="service-title">Pallet & Backroom Racking</h3>
+                    <p class="service-desc">Plano pallet racking solutions optimizing space utilization, maximizing efficiency, and enhancing store safety.</p>
+                    <span class="service-cta">Learn More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                </div>
+                
+                <div class="service-card" onclick="openModal('newstore')">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    </div>
+                    <h3 class="service-title">New Store Set Up</h3>
+                    <p class="service-desc">Plano retail store build out optimizing customer engagement, shaping consumer experience, and driving sales.</p>
+                    <span class="service-cta">Learn More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                </div>
+                
+                <div class="service-card" onclick="openModal('surveys')">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </div>
+                    <h3 class="service-title">Site Surveys</h3>
+                    <p class="service-desc">Plano site surveys reducing risks, ensuring compliance, and enabling informed retail store decisions.</p>
+                    <span class="service-cta">Learn More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                </div>
+                
+                <div class="service-card" onclick="openModal('reset')">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                    </div>
+                    <h3 class="service-title">Store Reset & Remodel</h3>
+                    <p class="service-desc">Plano store reset services to keep retail shops fresh, relevant, and driving increased sales.</p>
+                    <span class="service-cta">Learn More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM SECTION -->
+    <section id="apply" class="apply">
+        <div class="apply-container">
+            <div class="apply-card">
+                <div class="apply-header">
+                    <h2>Get in Touch</h2>
+                    <p>Have questions about our services? Fill out the form below and we'll get back to you shortly.</p>
+                </div>
+                
+                <div class="apply-body">
+                    <form id="applicationForm" onsubmit="submitForm(event)">
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div>
+                                    <label class="form-label" for="name">Full Name <span>*</span></label>
+                                    <input type="text" id="name" name="name" class="form-input" required>
+                                </div>
+                                <div>
+                                    <label class="form-label" for="phone">Phone Number <span>*</span></label>
+                                    <input type="tel" id="phone" name="phone" class="form-input" required>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1rem;">
+                                <label class="form-label" for="email">Email Address <span>*</span></label>
+                                <input type="email" id="email" name="email" class="form-input" required>
+                            </div>
+                            <div style="margin-top: 1rem;">
+                                <label class="form-label" for="service">Select Service <span>*</span></label>
+                                <select id="service" name="service" class="form-select" required>
+                                    <option value="" disabled selected>Select a service...</option>
+                                    <option value="Fixture & Millwork Installation">Fixture & Millwork Installation</option>
+                                    <option value="Display Assembly">Display Assembly</option>
+                                    <option value="Signage & POP Installation">Signage & POP Installation</option>
+                                    <option value="Product Merchandising">Product Merchandising</option>
+                                    <option value="Pallet & Backroom Racking">Pallet & Backroom Racking</option>
+                                    <option value="New Store Set Up">New Store Set Up</option>
+                                    <option value="Site Surveys">Site Surveys</option>
+                                    <option value="Store Reset & Remodel">Store Reset & Remodel</option>
+                                    <option value="General Inquiry">General Inquiry</option>
+                                </select>
+                            </div>
+                            <div style="margin-top: 1rem;">
+                                <label class="form-label" for="message">Message <span>*</span></label>
+                                <textarea id="message" name="message" class="form-textarea" rows="4" placeholder="Tell us about your project or inquiry..." required></textarea>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="form-submit">Send Message</button>
+                        <p class="form-note">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                            Your information is secure and confidential.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="https://5riversretailservices.com/wp-content/uploads/2025/12/Gold-Logo-Blue-BG-1.png" alt="5 Rivers">
+                        <span class="footer-company-name">5 Rivers Retail Services</span>
+                    </div>
+                    <p class="footer-tagline">Professional retail services nationwide. Delivering excellence in fixture installation, merchandising, and store setups.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/people/5-River-Retail-Services/61584922367087/?mibextid=wwXIfr&rdid=L13LjuIG01E0Ech1&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1GH98SnE62%2F%3Fmibextid%3DwwXIfr" target="_blank" class="social-icon" title="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/5riversretailservices/" target="_blank" class="social-icon" title="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/checkpoint/challengesV2/AQGwvy6NWGunzgAAAZz_nU4CTbjIaQJSS4z4APk8mskNjnY6V9wLc87FV9GGrKFWyiQkabPyYG7pqo2fCFMWy8hHB1jtwJMoWA?ut=2misA441a_6Ic1" target="_blank" class="social-icon" title="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-services">
+                    <h4>Our Services</h4>
+                    <div class="footer-services-grid">
+                        <div class="footer-service-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Fixture & Millwork Install
+                        </div>
+                        <div class="footer-service-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Displays
+                        </div>
+                        <div class="footer-service-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Signage Merchandising
+                        </div>
+                        <div class="footer-service-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Racking
+                        </div>
+                        <div class="footer-service-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Store Setups
+                        </div>
+                        <div class="footer-service-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Surveys
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-contact">
+                    <div class="footer-contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span>2301 Ohio Drive, Plano, Texas, 75093</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <a href="mailto:info@5riversretailservices.com">info@5riversretailservices.com</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3343.6!2d-96.79!3d33.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c22a6a1a1a1a1%3A0x1a1a1a1a1a1a1a1!2s2301%20Ohio%20Dr%2C%20Plano%2C%20TX%2075093!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus" 
+                    width="100%" 
+                    height="200" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            
+            <div class="footer-bottom-bar">
+                <p class="footer-copyright">&copy; 2026 5 Rivers Retail Services LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+        <div class="modal">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeModal()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                <div class="modal-icon" id="modalIcon"></div>
+                <h3 class="modal-title" id="modalTitle"></h3>
+                <p class="modal-subtitle" id="modalSubtitle"></p>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-footer">
+                <a href="#apply" class="btn btn-primary" onclick="closeModal(); document.getElementById('apply').scrollIntoView({behavior: 'smooth'}); return false;">Get a Quote</a>
+                <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="floating-buttons" style="display: flex !important;">
+        <a href="sms:2145096064" class="floating-btn imessage-btn" title="Send iMessage" style="display: flex !important;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+        </a>
+        <a href="javascript:window.scrollTo(0,0)" class="floating-btn back-to-top" id="backToTop" title="Back to Top" style="display: flex !important;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
+        </a>
+    </div>
+
+    <script>
+        const serviceData = {
+            fixture: {
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>',
+                title: 'Fixture & Millwork Installation',
+                subtitle: 'Professional Plano fixture & millwork installation services',
+                overview: 'Finesse in fixture installations contributes to the success of retail stores. Hiring proven professionals like 5 Rivers Retail Services for Plano fixture installations helps enhance customer experience and has a positive impact on sales. When fixture installations are done by well-trained and experienced technicians, store owners have complete peace of mind that display units, shelving, gondolas, racks, and counters will be properly secured, aligned, and positioned for optimum product visibility and accessibility.<br><br>Skillful millwork installation in a store goes a long way in creating an excellent impression on customers and bringing ease into shopping. Well-designed millwork and strategic installation boost the store\'s interior aesthetics while improving functionality. Shoppers feel comfortable, browse longer, buy more, and keep returning when they find a stylish, cohesive store environment resulting from thoughtful millwork installation.',
+                services: [
+                    'Expert retail fixture installation',
+                    'Store fixture installation by specialists',
+                    'Installing store fixtures impeccably',
+                    'Fitting store display fixtures diligently',
+                    'Impeccable millwork installation',
+                    'Skilled millwork installers',
+                    'Flawless woodwork installation in stores',
+                    'Installing store racks and fixtures',
+                    'New retail shelving installs',
+                    'Installing shop fixtures',
+                    'Fitting retail wall fixtures'
+                ],
+                benefits: [
+                    'Safe job completion assurance',
+                    'Time & money savings over the years',
+                    'Enhanced customer experience',
+                    'Improved store aesthetics & functionality',
+                    'Maximum product visibility',
+                    'Foster lasting customer relationships'
+                ]
+            },
+            display: {
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>',
+                title: 'Display Assembly',
+                subtitle: 'Plano retail display installation services for maximizing sales',
+                overview: 'At 5 Rivers Retail Services, we believe that retail display installation services in Plano, TX are a must to improve the look and function of your retail store. Strategic Plano retail display installation enhances the visual identity of different products and reinforces their branding.<br><br>By combining shelving units with elements like signage and lighting, retail display installation in Plano stores encourages customer engagement and enhances their shopping experience. Upselling and cross-selling opportunities can also be created through innovative product displays, attractive retail shelving, interactive store fixtures, and effective store displays.<br><br>Not all retail business owners realize how significantly the installation of store display fixtures impacts consumer behavior. As the store\'s visual merchandising infrastructure, Plano store display fixtures should create an inviting shopping environment. The installation has to be relevant and strategic.',
+                services: [
+                    'Innovative product displays',
+                    'Attractive retail shelving',
+                    'Interactive store fixtures',
+                    'Effective store displays',
+                    'Gondola store shelving installation',
+                    'Departmentalized retail displays',
+                    'Eye-catching display shelving',
+                    'Well-lit store display racks',
+                    'Digital display mounting',
+                    'End-cap display assembly'
+                ],
+                benefits: [
+                    'Maximized sales potential',
+                    'Enhanced customer engagement',
+                    'Improved shopping experience',
+                    'Upselling & cross-selling opportunities',
+                    'Strategic space planning',
+                    'Inviting store environment'
+                ]
+            },
+            signage: {
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>',
+                title: 'Signage & POP Installation',
+                subtitle: 'Plano commercial sign installation services for high ROI',
+                overview: 'As a leading commercial sign installation expert serving Plano, TX, 5 Rivers Retail Services takes pride in how significantly its services impact clients\' business success. Plano commercial sign installation in retail stores is especially an excellent investment that delivers high ROI.<br><br>The signage works as a silent salesperson, guiding everyone entering your shop. Commercial sign installation in Plano helps customers know which products you stock and helps with navigation, guiding people to the items they wish to buy. Quality sign installs are a reflection of your professionalism.<br><br>Point of purchase or POP displays in Plano retail stores are placed right next to the merchandise being promoted. The objective is to increase visibility and quietly persuade consumers to buy. POP displays target customers who tend to make impulsive purchase decisions and are installed to highlight promotional offers and showcase newly launched products.',
+                services: [
+                    'Store sign installation',
+                    'Business sign installation',
+                    'Outdoor signs for stores',
+                    'Interior store signage installs',
+                    'POP retail displays installation',
+                    'Attractive point of sale displays',
+                    'Digital point of purchase displays',
+                    'POP displays with engaging text',
+                    'Well-placed point of purchase signs',
+                    'Exterior building signage',
+                    'Interior wall and window graphics',
+                    'Safety and regulatory signage'
+                ],
+                benefits: [
+                    'High ROI on signage investment',
+                    'Silent salesperson for your store',
+                    'Improved customer navigation',
+                    'Triggers impulse buying',
+                    'Professional brand image',
+                    'Increased product visibility'
+                ]
+            },
+            merchandising: {
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>',
+                title: 'Product Merchandising',
+                subtitle: 'Plano product merchandising to maximize store profitability',
+                overview: 'Product merchandising in Plano, TX is a specialized job best left to highly knowledgeable and well-reputed professionals such as 5 Rivers Retail Services. Competition today is fierce, and so are consumer expectations! The focus of successful Plano product merchandising is on maximizing store\'s profitability while catering to customers\' needs in the best way possible.<br><br>Product merchandising for Plano stores is concerned, at its core, with presentation of items in the store in an enticing way so consumers are drawn in and end up buying. It covers everything, including product selection, displays, pricing, and promotions.<br><br>The ultimate objective of retail merchandizing for a Plano store is building strong customer relationships and inspiring consumer loyalty. Plano retail merchandizing is a powerful marketing tool that can enhance the store\'s operational efficiency and drive sales.',
+                services: [
+                    'Innovative merchandise display',
+                    'Professional merchandising solutions',
+                    'Efficient planogram compliance',
+                    'Expert retail merchandise services',
+                    'Efficient retail visual merchandising',
+                    'Modern retail solutions',
+                    'Top-quality merchandising service',
+                    'Result-oriented merchandising ideas',
+                    'Optimal shelving solutions',
+                    'Cross-merchandising and adjacencies',
+                    'Promotional end-cap stocking'
+                ],
+                benefits: [
+                    'Maximized store profitability',
+                    'Enhanced customer experience',
+                    'Strong customer relationships',
+                    'Inspired consumer loyalty',
+                    'Improved operational efficiency',
+                    'Direct impact on sales'
+                ]
+            },
+            racking: {
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>',
+                title: 'Pallet & Backroom Racking',
+                subtitle: 'Plano pallet racking solutions for optimal space utilization',
+                overview: 'Having the right pallet racking in your Plano, TX store is necessary for optimizing space utilization, along with maximizing operational efficiency and safety. At 5 Rivers Retail Services, we help clients make an informed decision while choosing Plano pallet racking for their business. The key factors that influence this choice are store layout, product types, expected footfall, budget, and safety considerations.<br><br>Efficient store management is critically important in the fast-paced retail business environment we have today. And pallet rack installation in the Plano store plays a significant role in this. A well-thought-out approach to Plano pallet rack installation ensures the most practical use of horizontal as well as vertical space. Easy access to products, unhindered workflow, and minimal inventory damage are the other ways proper pallet rack installation contributes to improving the store\'s bottom line.',
+                services: [
+                    'Ideally-suited pallet shelving',
+                    'Sturdy pallet rack shelving',
+                    'Spacious commercial racking systems',
+                    'High-quality pallet storage racks',
+                    'Pallet rack mezzanine installation',
+                    'Push back racking installation',
+                    'Commercial racking installs',
+                    'Easily accessible retail shelving',
+                    'Properly-sized shop shelving',
+                    'Well-secured retail wall shelving',
+                    'Well-stocked gondola shelving'
+                ],
+                benefits: [
+                    'Optimized space utilization',
+                    'Maximized operational efficiency',
+                    'Enhanced store safety',
+                    'Improved bottom line',
+                    'Easy product access',
+                    'Unhindered workflow'
+                ]
+            },
+            newstore: {
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>',
+                title: 'New Store Set Up',
+                subtitle: 'Plano retail store build out for optimizing customer engagement',
+                overview: '5 Rivers Retail Services, with its extensive expertise and experience in retail store build out in Plano, TX knows all about how to draw in, engage, impress, and convince customers. A successful retail environment requires much more than a stock of top-grade products. The interior retail store build out in Plano has a pivotal role in shaping consumer experience and behavior.<br><br>The strategic features of Plano retail store build out include an inviting entrance, proper space utilization, thoughtful product zoning, well-planned racking & fixture installation, and smart use of lighting. A Plano retail fit out that supports the business\'s objectives comes from a balanced combination of aesthetic appeal and practical functionality.<br><br>Display units and other furnishings should suit the needs of customers as well as store staff. Every retail store build out in Plano must be carried out with optimizing the visitors\' convenience and satisfaction in mind.',
+                services: [
+                    'Efficient retail build out',
+                    'Seamless retail store remodel',
+                    'Profitable retail renovation',
+                    'Setting up retail shop',
+                    'Shop fitting projects',
+                    'Fitting out retail space',
+                    'Retail store remodeling',
+                    'Retail business fit out',
+                    'Retail building fit out',
+                    'Store reset for holiday season',
+                    'Fitting out store interiors',
+                    'Retail resets for special events'
+                ],
+                benefits: [
+                    'Optimized customer engagement',
+                    'Enhanced consumer experience',
+                    'Balanced aesthetics & functionality',
+                    'Smooth visitor movement',
+                    'Maximum product visibility',
+                    'Increased sales potential'
+                ]
+            },
+            surveys: {
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+                title: 'Site Surveys',
+                subtitle: 'Plano site surveys for informed retail store decisions',
+                overview: 'Retail site surveys in Plano, TX are the critical first step of a store build out project. In fact, even retail store remodels can be started only after comprehensive Plano site surveys by knowledgeable, seasoned professionals such as 5 Rivers Retail Services.<br><br>Retail store fit out requires a considerable investment of money, time, and effort. A proper survey is crucial to ensure that all these produce good returns. Site surveys in Plano play a pivotal role in reducing risks and ensuring compliance. The business owner can make informed decisions on the basis of the essential data provided by thorough site surveys.<br><br>With technology invading virtually every aspect of life, retail store surveys in Plano are also done using state-of-the-art digital tools. 3D scanning technology and drones can be utilized for photo and video documentation to create accurate virtual models. The virtual walkthrough combined with reality mapping software enables enhanced decision-making.',
+                services: [
+                    'Detailed retail site survey',
+                    'Professional retail survey',
+                    'Surveying store site diligently',
+                    'Thorough retail site analysis',
+                    'Survey for retail business setup',
+                    'Surveys before setting up retail shops',
+                    'Retail space survey',
+                    'Survey for retail stores',
+                    'Retail shop survey',
+                    'Retail outlet survey',
+                    'Survey for retail build out',
+                    'Retail reset survey'
+                ],
+                benefits: [
+                    'Reduced investment risks',
+                    'Ensured compliance',
+                    'Informed decision-making',
+                    'Time and cost savings',
+                    'Accurate virtual models',
+                    'Enhanced project feasibility'
+                ]
+            },
+            reset: {
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>',
+                title: 'Store Reset & Remodel',
+                subtitle: 'Plano store reset services to keep retail shops fresh and relevant',
+                overview: 'A store reset in Plano, TX is a great strategy to keep retail shops fresh, relevant, and popular. It primarily involves reorganizing the layout and rearranging the products\' display. Consistently declining sales, stagnant shelves, and negative customer feedback are the key indications that you need a retail store reset in Plano. New product launches, seasonal changes, pressure of aggressive competitors, and major category shift are other situations when you should consider a store reset.<br><br>Detailed planning and preparation go into a retail reset in Plano that is right for the business. A clear strategy is essential to get started on the revamp. The Plano retail reset should be initiated with comprehensive analysis of consumer behavior and sales data. Modern tools and software can be utilized to visualize the changes before actually implementing the reset.<br><br>Monitoring and analyzing consumer behavior is at the heart of merchandise reset in Plano. Exploring how people perceive products or brands and make buying decisions shapes how Plano merchandise reset should be done. Happy, satisfied customers lead to a successful retail business.',
+                services: [
+                    'Retail resets',
+                    'Store layout reset',
+                    'Retail shop reset',
+                    'Retail store display reset',
+                    'Project to reset retail store',
+                    'Retail merchandiser services',
+                    'Making retail display reset',
+                    'Resetting retail fixtures',
+                    'Retail planogram reset',
+                    'Retail merchandising reset',
+                    'Merchandising and display reset',
+                    'Product reset program'
+                ],
+                benefits: [
+                    'Keeps store fresh and relevant',
+                    'Improved customer satisfaction',
+                    'Boosted customer loyalty',
+                    'Increased store sales',
+                    'Modern visual appearance',
+                    'Enhanced shopping experience'
+                ]
+            }
+        };
+
+        function toggleMenu() {
+            document.getElementById('navbarMenu').classList.toggle('active');
+        }
+        
+        function closeMobileMenu() {
+            document.getElementById('navbarMenu').classList.remove('active');
+            const dropdown = document.querySelector('.navbar-dropdown');
+            const menu = document.querySelector('.navbar-dropdown-menu');
+            if (dropdown) dropdown.classList.remove('open');
+            if (menu) menu.classList.remove('active');
+        }
+        
+        function toggleServicesDropdown(e) {
+            e.preventDefault();
+            const dropdown = document.querySelector('.navbar-dropdown');
+            const menu = document.querySelector('.navbar-dropdown-menu');
+            dropdown.classList.toggle('open');
+            menu.classList.toggle('active');
+        }
+        
+        // Drag and Drop Effects
+        var fileLabel = document.querySelector('.form-file');
+        if (fileLabel) {
+            fileLabel.addEventListener('dragenter', function(e) {
+                e.preventDefault();
+                this.classList.add('dragover');
+            });
+            fileLabel.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.classList.add('dragover');
+            });
+            fileLabel.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                this.classList.remove('dragover');
+            });
+            fileLabel.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.classList.remove('dragover');
+                var files = e.dataTransfer.files;
+                document.getElementById('resume').files = files;
+                handleFileSelect({ target: document.getElementById('resume') });
+            });
+        }
+        
+        // File Select Display
+        function handleFileSelect(event) {
+            var file = event.target.files[0];
+            var display = document.getElementById('fileSelected');
+            if (file && display) {
+                display.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Selected: ' + file.name;
+                display.classList.add('show');
+            } else if (display) {
+                display.classList.remove('show');
+            }
+        }
+        
+        // Form Submit
+        function submitForm(event) {
+            event.preventDefault();
+            
+            var submitBtn = event.target.querySelector('.form-submit');
+            var originalText = submitBtn.innerText;
+            submitBtn.innerText = 'Sending...';
+            submitBtn.disabled = true;
+            
+            var formData = new FormData();
+            formData.append('name', document.getElementById('name').value);
+            formData.append('phone', document.getElementById('phone').value);
+            formData.append('email', document.getElementById('email').value);
+            formData.append('service', document.getElementById('service').value);
+            formData.append('message', document.getElementById('message').value);
+            
+            fetch('https://damnart-ai-guladab.n8n-wsk.com/webhook/5riversservices', {
+                method: 'POST',
+                body: formData
+            })
+            .then(function(response) {
+                if (response.ok) {
+                    alert('Success! Your message has been sent. We will get back to you shortly.');
+                    event.target.reset();
+                } else {
+                    alert('There was an error sending your message. Please try again.');
+                }
+            })
+            .catch(function(error) {
+                console.error('Error:', error);
+                alert('There was an error sending your message. Please try again.');
+            })
+            .finally(function() {
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+            });
+        }
+        
+        var navLinks = document.querySelectorAll('.navbar-link');
+        for (var i = 0; i < navLinks.length; i++) {
+            navLinks[i].addEventListener('click', function(e) {
+                if (this.getAttribute('onclick') && this.getAttribute('onclick').includes('toggleServicesDropdown')) {
+                    return;
+                }
+                document.getElementById('navbarMenu').classList.remove('active');
+            });
+        }
+
+        function openModal(serviceId) {
+            var data = serviceData[serviceId];
+            if (!data) return;
+            
+            document.getElementById('modalIcon').innerHTML = data.icon;
+            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalSubtitle').textContent = data.subtitle;
+            
+            var servicesList = data.services.map(function(s) {
+                return '<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>' + s + '</li>';
+            }).join('');
+            
+            var benefitsList = data.benefits.map(function(b) {
+                return '<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>' + b + '</li>';
+            }).join('');
+            
+            document.getElementById('modalBody').innerHTML = 
+                '<div class="modal-section">' +
+                    '<h4><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> Overview</h4>' +
+                    '<p>' + data.overview + '</p>' +
+                '</div>' +
+                '<div class="modal-section">' +
+                    '<h4><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg> Services Included</h4>' +
+                    '<ul class="modal-list">' + servicesList + '</ul>' +
+                '</div>' +
+                '<div class="modal-section">' +
+                    '<h4><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> Key Benefits</h4>' +
+                    '<ul class="modal-list">' + benefitsList + '</ul>' +
+                '</div>';
+            
+            document.getElementById('modalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function closeModalOutside(event) {
+            if (event.target === document.getElementById('modalOverlay')) {
+                closeModal();
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        window.onscroll = function() {
+            var btn = document.getElementById('backToTop');
+            if (btn) {
+                if (window.pageYOffset > 50) {
+                    btn.classList.add('visible');
+                } else {
+                    btn.classList.remove('visible');
+                }
+            }
+        };
+    </script>
+</body>
+</html>
